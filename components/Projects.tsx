@@ -5,22 +5,24 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with real-time inventory and secure payments.",
-    tags: ["Next.js", "Stripe", "Prisma"],
-    link: "#",
-    github: "#",
+    title: "URL Shortener",
+    description:
+      "Engineered a scalable URL shortener using Base62 encoding, Redis cache-aside caching (with negative cache TTLs), and fixed-window rate limiting. Decoupled analytics from the redirect path via an asynchronous Redis message queue and a batch-processing worker, incorporating IP hashing for privacy-compliant metrics.",
+    tags: ["Node.js", "PostgreSQL", "Redis", "Next.js"],
+    link: "https://dd-url-shortener.vercel.app/",
+    github: "https://github.com/DhyeyDesai/url-shortener/",
   },
   {
-    title: "AI Task Manager",
-    description: "Smart task management app that uses AI to prioritize and categorize your daily work.",
-    tags: ["React", "OpenAI API", "Firebase"],
-    link: "#",
-    github: "#",
+    title: "Notification Service",
+    description:
+      "Async notification platform with a decoupled API-worker architecture using RabbitMQ for message queuing, exponential backoff retries with a DLQ, idempotency keys for exactly-once delivery, and optimistic locking for concurrent worker safety.",
+    tags: ["Fastify", "PostgreSQL", "RabbitMQ", "Docker Compose"],
+    link: "",
+    github: "https://github.com/DhyeyDesai/notification-service",
   },
   {
     title: "Portfolio Website",
-    description: "This very website! Built with performance and aesthetics in mind.",
+    description: "This very website!",
     tags: ["Next.js", "Framer Motion", "Tailwind"],
     link: "#",
     github: "#",
@@ -29,7 +31,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-4 md:px-20 bg-background relative">
+    <section
+      id="projects"
+      className="py-24 px-4 md:px-20 bg-background relative"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +46,8 @@ export default function Projects() {
             Selected Work
           </h2>
           <p className="text-gray-400 max-w-2xl">
-            A collection of projects that showcase my passion for building clean and functional software.
+            A collection of projects that showcase my passion for building clean
+            and functional software.
           </p>
         </motion.div>
 
@@ -62,24 +68,35 @@ export default function Projects() {
                   {project.description}
                 </p>
               </div>
-              
+
               <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                 {project.tags.map((tag, i) => (
-                  <span key={i} className="px-2 py-1 text-xs rounded-md bg-white/5 text-gray-300 border border-white/10">
+                  <span
+                    key={i}
+                    className="px-2 py-1 text-xs rounded-md bg-white/5 text-gray-300 border border-white/10"
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
 
               <div className="flex gap-4 pt-4 border-t border-white/10">
-                <a href={project.github} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href={project.github}
+                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   <Github size={16} />
                   <span>Code</span>
                 </a>
-                <a href={project.link} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-                  <ExternalLink size={16} />
-                  <span>Live Demo</span>
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    <ExternalLink size={16} />
+                    <span>Live Demo</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

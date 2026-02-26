@@ -5,7 +5,10 @@ import { Mail, Linkedin, Twitter, FileText } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-4 md:px-20 bg-background relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-24 px-4 md:px-20 bg-background relative overflow-hidden"
+    >
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,34 +20,35 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-400">
-            Have a project in mind or just want to say hi? I&apos;m always open to new opportunities.
+            Have a project in mind or just want to say hi? I&apos;m open to
+            building new stuff.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ContactLink
-            href="mailto:dhyey@example.com"
+            href="mailto:21desaidhyey@gmail.com"
             icon={<Mail size={20} />}
             label="Email"
-            sublabel="dhyey@example.com"
+            sublabel="21desaidhyey@gmail.com"
             delay={0.1}
           />
           <ContactLink
-            href="https://linkedin.com/in/dhyey"
+            href="https://www.linkedin.com/in/desai-dhyey/"
             icon={<Linkedin size={20} />}
             label="LinkedIn"
-            sublabel="/in/dhyey"
+            sublabel="/in/desai-dhyey"
             delay={0.2}
           />
           <ContactLink
-            href="https://x.com/dhyey"
+            href="https://x.com/dhyeytwt"
             icon={<Twitter size={20} />}
             label="X (Twitter)"
-            sublabel="@dhyey"
+            sublabel="@dhyeytwt"
             delay={0.3}
           />
           <ContactLink
-            href="https://drive.google.com/file/d/your-resume-link"
+            href="https://drive.google.com/file/d/1EoxoTRWv3iv2L9OvS_F6wTORk1abok2G"
             icon={<FileText size={20} />}
             label="Resume"
             sublabel="View PDF"
@@ -56,7 +60,19 @@ export default function Contact() {
   );
 }
 
-function ContactLink({ href, icon, label, sublabel, delay }: { href: string; icon: React.ReactNode; label: string; sublabel: string; delay: number }) {
+function ContactLink({
+  href,
+  icon,
+  label,
+  sublabel,
+  delay,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  sublabel: string;
+  delay: number;
+}) {
   return (
     <motion.a
       href={href}
@@ -72,7 +88,9 @@ function ContactLink({ href, icon, label, sublabel, delay }: { href: string; ico
       </div>
       <div>
         <h3 className="font-semibold text-white">{label}</h3>
-        <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">{sublabel}</p>
+        <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+          {sublabel}
+        </p>
       </div>
     </motion.a>
   );
