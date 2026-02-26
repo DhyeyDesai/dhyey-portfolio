@@ -13,15 +13,29 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50  backdrop-blur-xl"
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between">
-        <a href="#" className="flex items-center hover:opacity-80 transition-opacity">
-          <Image 
-            src="/avatar.png" 
-            alt="Dhyey Logo" 
-            width={50} 
-            height={50} 
+      {/* Faded blur overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[-1]"
+        style={{
+          bottom: '-80px',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          maskImage: 'linear-gradient(to bottom, black 40%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.1) 85%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.1) 85%, transparent 100%)',
+        }}
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between">
+        <a
+          href="#"
+          className="flex items-center hover:opacity-80 transition-opacity"
+        >
+          <Image
+            src="/avatar.png"
+            alt="Dhyey Logo"
+            width={50}
+            height={50}
             className="rounded-full"
           />
         </a>
@@ -51,10 +65,18 @@ export default function Navbar() {
           className="md:hidden bg-background border-b border-white/10 overflow-hidden"
         >
           <div className="flex flex-col items-center gap-4 py-6">
-            <NavLink href="#about" onClick={() => setIsOpen(false)}>About</NavLink>
-            <NavLink href="#skills" onClick={() => setIsOpen(false)}>Skills</NavLink>
-            <NavLink href="#projects" onClick={() => setIsOpen(false)}>Projects</NavLink>
-            <NavLink href="#contact" onClick={() => setIsOpen(false)}>Contact</NavLink>
+            <NavLink href="#about" onClick={() => setIsOpen(false)}>
+              About
+            </NavLink>
+            <NavLink href="#skills" onClick={() => setIsOpen(false)}>
+              Skills
+            </NavLink>
+            <NavLink href="#projects" onClick={() => setIsOpen(false)}>
+              Projects
+            </NavLink>
+            <NavLink href="#contact" onClick={() => setIsOpen(false)}>
+              Contact
+            </NavLink>
           </div>
         </motion.div>
       )}
@@ -62,7 +84,15 @@ export default function Navbar() {
   );
 }
 
-function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
+function NavLink({
+  href,
+  children,
+  onClick,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
   return (
     <a
       href={href}
