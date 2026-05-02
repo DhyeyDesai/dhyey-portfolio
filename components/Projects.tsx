@@ -24,7 +24,7 @@ const projects = [
     title: "Portfolio Website",
     description: "This very website!",
     tags: ["Next.js", "Framer Motion", "Tailwind"],
-    link: "#",
+    // link: "#",
     github: "https://github.com/DhyeyDesai/dhyey-portfolio/",
   },
 ];
