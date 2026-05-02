@@ -2,17 +2,42 @@
 
 import { motion } from "framer-motion";
 
-const skills = [
-  { name: "React", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "TypeScript", category: "Language" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "Python", category: "Language" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "Docker", category: "DevOps" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Git", category: "Tools" },
+const skillCategories = [
+  {
+    label: "Languages",
+    color: "from-stone-700/8 to-stone-800/5",
+    border: "border-stone-500/15",
+    dot: "bg-stone-400/40",
+    skills: ["TypeScript", "JavaScript", "Python"],
+  },
+  {
+    label: "Frontend",
+    color: "from-stone-700/8 to-stone-800/5",
+    border: "border-yellow-700/12",
+    dot: "bg-yellow-600/30",
+    skills: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    label: "Backend",
+    color: "from-stone-700/8 to-stone-800/5",
+    border: "border-stone-500/15",
+    dot: "bg-stone-400/40",
+    skills: ["Node.js", "Express", "Fastify", "REST APIs", "Prisma"],
+  },
+  {
+    label: "Databases",
+    color: "from-stone-700/8 to-stone-800/5",
+    border: "border-yellow-700/12",
+    dot: "bg-yellow-600/30",
+    skills: ["PostgreSQL", "MongoDB", "Redis"],
+  },
+  {
+    label: "Infrastructure & DevOps",
+    color: "from-stone-700/8 to-stone-800/5",
+    border: "border-stone-500/15",
+    dot: "bg-stone-400/40",
+    skills: ["AWS", "Docker", "RabbitMQ", "Linux", "Git"],
+  },
 ];
 
 export default function Skills() {
@@ -33,18 +58,38 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+          {skillCategories.map((category, catIndex) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+              key={category.label}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ y: -2, backgroundColor: "rgba(255,255,255,0.08)" }}
-              className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1 cursor-default transition-colors"
+              transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+              className={`rounded-2xl bg-gradient-to-br ${category.color} border ${category.border} p-6 backdrop-blur-sm`}
             >
-              <h3 className="font-medium text-gray-200">{skill.name}</h3>
-              <span className="text-xs text-gray-500">{skill.category}</span>
+              <div className="flex items-center gap-2 mb-4">
+                <span className={`w-2 h-2 rounded-full ${category.dot}`} />
+                <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider">
+                  {category.label}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.span
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: catIndex * 0.1 + skillIndex * 0.05,
+                    }}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.12)" }}
+                    className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-200 cursor-default transition-colors"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
