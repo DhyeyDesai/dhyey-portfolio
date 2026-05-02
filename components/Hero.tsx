@@ -35,7 +35,7 @@ export default function Hero() {
       <SlatBackground />
 
       <div className="z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl transform-style-3d">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -44,7 +44,7 @@ export default function Hero() {
           <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 backdrop-blur-sm">
             Ready to build something?
           </span>
-        </motion.div>
+        </motion.div> */}
 
         <motion.h1
           // style={{ x: textX, y: textY }}
@@ -77,9 +77,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="perspective-1000"
         >
-          <div className="p-8 group transition-colors">
-            <p className="text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed font-medium font-serif">
-              I press buttons on a keyboard to solve problems and build stuff.
+          <div className="p-2 group transition-colors">
+            <p className="text-lg text-left md:text-xl text-gray-300 max-w-[54ch] leading-relaxed font-medium font-serif word-spacing: 1px text-justify">
+              I solve problems through good architecture, careful design, and an
+              attention to detail. First principles, caffeine, and a love for
+              the craft.
             </p>
           </div>
         </motion.div>
@@ -92,13 +94,13 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-gray-200 text-black font-medium hover:bg-gray-300 transition-colors"
+            className="px-8 py-3 rounded-full bg-neutral-700 text-white font-medium border border-neutral-600 hover:border-primary/50 hover:bg-neutral-600 transition-colors"
           >
             View Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm"
+            className="px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:border-primary/40 hover:bg-primary/10 transition-colors backdrop-blur-sm"
           >
             Contact Me
           </a>
